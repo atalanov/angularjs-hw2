@@ -1,0 +1,8 @@
+<h2>{{$ctrl.article.title}}</h2>
+<div class="row">
+    <div class="col-auto ml-auto">
+        <a href="/posts/{{$ctrl.article.id}}/edit" class="btn btn-success">Edit</a>
+        <a href="/posts/{{$ctrl.article.id}}/delete" class="btn btn-danger">Delete</a>
+    </div>
+    <div class="col-12">{{$ctrl.article.content}}</div>
+</div>

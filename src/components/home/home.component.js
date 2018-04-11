@@ -3,7 +3,8 @@ import template from './home.html';
 
 const HomeComponent = {
   controller,
-  template
+  template,
+  controllerAs: "$ctrl"
 };
 
 export default HomeComponent;

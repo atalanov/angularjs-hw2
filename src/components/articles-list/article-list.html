@@ -1,1 +1,7 @@
-<article-view  ng-repeat="article in $ctrl.articles" article="article"></article-view>
+<article-view  
+    ng-repeat="article in $ctrl.articles| filter: article.deleted" 
+    article="article" 
+    on-update="$ctrl.updateArticle($event)"
+    on-delete="$ctrl.deleteArticle($event)"
+    >
+</article-view>

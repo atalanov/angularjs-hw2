@@ -3,7 +3,11 @@ import template from './article-list.html';
 
 const ArticleListComponent = {
     controller,
-    template
+    template,
+    bindings:{
+        articles: '<',
+        onAction: '&' 
+    }
 };
 
 export default ArticleListComponent;

@@ -1,21 +1,22 @@
 <h2>Create</h2>
-<form name="addArticleForm" role="form" ng-submit="$ctrl.add()">
+<span class="text-danger" ng-show="$ctrl.showError">Error: form is not valid</span>
+<form name="$ctrl.addForm" ng-submit="$ctrl.onSubmit($ctrl.addForm)">
     <div class="form-group row">
         <label class="col-sm-2 col-form-label">Title:</label>
         <div class="col-sm-10">
-            <input type="text" class="form-control" ng-model="$ctrl.article.title" >
+            <input type="text" class="form-control" ng-model="$ctrl.article.title" required >
         </div>
     </div>
     <div class="form-group row">
         <label class="col-sm-2 col-form-label">Summary:</label>
         <div class="col-sm-10">
-            <textarea ng-model="$ctrl.article.summary"></textarea>
+            <textarea ng-model="$ctrl.article.summary" length-validator></textarea>
         </div>
     </div>
     <div class="form-group row">
         <label class="col-sm-2 col-form-label">Content:</label>
         <div class="col-sm-10">
-            <textarea  ng-model="$ctrl.article.content"></textarea>
+            <textarea  ng-model="$ctrl.article.content" length-validator></textarea>
         </div>
     </div>
     <div class="form-group row">

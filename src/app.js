@@ -5,8 +5,10 @@ import Components from './components';
 import 'angular-route';
 import 'angular-resource';
 import HomeComponent from './components/home/home.component';
-import ArticlesService from './services/articles.service';
+import ArticleService from './services/articles.service';
 import AddArticleComponent from './components/add-article/add-article.component';
+import 'bootstrap';
+import '../node_modules/bootstrap/dist/css/bootstrap.css';
 
 const root = angular
     .module('app', [
@@ -20,6 +22,6 @@ root.component('app', AppComponent)
         .when("/", HomeComponent)
         .when("/articles/add/", AddArticleComponent)
     })
-    .service('ArticlesService', ArticlesService);
+    .service('ArticleService', ArticleService);
 
 export default root;

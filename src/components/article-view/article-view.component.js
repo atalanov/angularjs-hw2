@@ -3,10 +3,13 @@ import template from './article-view.html';
 
 const ArticleViewComponent = {
     bindings: {
-      article: '<'
+      article: '<',
+      onUpdate: '&',
+      onDelete: '&'
     },
     controller,
-    template
+    template,
+    controllerAs: '$ctrl'
 };
 
 export default ArticleViewComponent;

@@ -1,10 +1,29 @@
 export default class ArticleListController {
-    constructor(ArticlesService) {
-      this.articlesService = ArticlesService;
+    constructor() {
     }
     $onInit() {
-        this.articles = [];
-        this.articlesService.get().then(response => {this.articles = response; console.log(this.articles)});
+        
     }
-    static get $inject() { return ['ArticlesService'] };
+    $onChanges(changes){
+        if (changes.articles) {
+            this.articles = angular.copy(changes.articles.currentValue);
+        }
+    }
+    updateArticle(event){
+        this.onAction({
+            $event:{
+                action: 'update',
+                article: event.article
+            }
+        })
+    }
+    deleteArticle(event){
+        this.onAction({
+            $event:{
+                action: 'delete',
+                id: event.id
+            }
+        });
+    }
+    static get $inject() { return [] };
 }

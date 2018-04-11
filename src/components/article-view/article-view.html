@@ -1,8 +1,11 @@
-<h2>{{$ctrl.article.title}}</h2>
-<div class="row">
-    <div class="col-auto ml-auto">
-        <a href="/posts/{{$ctrl.article.id}}/edit" class="btn btn-success">Edit</a>
-        <a href="/posts/{{$ctrl.article.id}}/delete" class="btn btn-danger">Delete</a>
+<div ng-show="$ctrl.view">
+    <h2>{{$ctrl.article.title}}</h2>
+    <div class="row">
+        <div class="col-auto ml-auto">
+            <button ng-click="$ctrl.view=false" class="btn btn-success">Edit</button>
+            <button ng-click="$ctrl.delete($ctrl.article._id)" class="btn btn-danger">Delete</button>
+        </div>
+        <div class="col-12">{{$ctrl.article.content}}</div>
     </div>
-    <div class="col-12">{{$ctrl.article.content}}</div>
 </div>
+<edit-article ng-show="!$ctrl.view" article="$ctrl.article" on-edit="$ctrl.edit($event)"></edit-article>

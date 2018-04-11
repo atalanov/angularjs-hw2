@@ -1,4 +1,5 @@
+<button ng-click="$ctrl.showAddForm=true" class="btn btn-success">Add Article</button>
+<add-article on-add="$ctrl.AddArticle($event)" ng-show="$ctrl.showAddForm"></add-article>
 <div>
-    <article-list></article-list>
+    <article-list articles="$ctrl.articles" on-action="$ctrl.makeAction($event)"></article-list>
 </div>
-<a href="#!/articles/add/">Add Article</a>

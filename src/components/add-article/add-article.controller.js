@@ -1,15 +1,20 @@
 export default class AddArticleController{
-    constructor($location, ArticlesService) {
-        this.articlesService = ArticlesService;
-        this.$location = $location;
+    constructor() {
+        this.article = {};
     }
-    add(){
-        console.log(this.article);
-        this.articlesService.add(this.article);
-        this.$location.path('/');
+    $onInit(){
+        this.article = {};
     }
-    static get $inject() {
-        return ['$location', 'ArticlesService'];
+    onSubmit(form){
+        console.log(form.$valid, form);
+        if(form.$valid)
+            this.onAdd({
+                $event:{
+                    article: this.article
+                }
+            });
+        else{
+            this.showError = true;
+        }
     }
-    
 }

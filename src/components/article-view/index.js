@@ -1,8 +1,9 @@
 import angular from 'angular';
 import ArticleViewComponent from './article-view.component';
+import EditArticle from '../edit-article';
 
 const ArticleView = angular
-    .module('articleView', [])
+    .module('articleView', [EditArticle])
     .component('articleView', ArticleViewComponent)
     .name;
 
